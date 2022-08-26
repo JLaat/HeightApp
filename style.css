@@ -1,0 +1,13 @@
+.topContainer {
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.distanceDisplay {
+    font-size: 3em;
+}
+.distanceSlider {
+    min-width: 50vw;
+}
