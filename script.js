@@ -7,7 +7,10 @@ distanceSlider.oninput = function () {
 }
 // Executed after page is loaded
 const main = () => {
-    window.addEventListener("orientationchange", onAngleChange);
+    console.log("nonii");
+    screen.orientation.addEventListener("change", function (event) {
+        onAngleChange(event);
+    })
     getVideo();
 }
 
@@ -20,6 +23,7 @@ const onAngleChange = (event) => {
 
     let height = Math.tan(angle*Math.PI/180)*distanceDisplay.textContent;
     heightDisplay.textContent = height;
+    console.log("Toimii");
 
 }
 // Asks the user for permission to use camera
