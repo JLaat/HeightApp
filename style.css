@@ -1,13 +1,46 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+
+}
+/* Top section, contains slider and display for sliders value */
 .topContainer {
     width: 100vw;
     position: absolute;
+    top: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1;
 }
-.distanceDisplay {
+.distanceDisplay, .heightDisplay {
+    color: white;
     font-size: 3em;
 }
 .distanceSlider {
     min-width: 50vw;
+    height: 1em;
+}
+
+/* Middle section, contains straight line and displays objects height */
+.middleContainer {
+    position: absolute;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+}
+.heightLine {
+    height: .3em;
+    border-bottom: dashed #4285F4 .3em;
+    width: 100vw;
+}
+.heightDisplay {
+align-self: center;
+}
+
+/* Phones camera that is displayed in whole page */
+.videoPlayer {
+   height: 100vh;
 }

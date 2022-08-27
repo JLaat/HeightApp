@@ -1,22 +1,35 @@
+const distanceDisplay = document.querySelector(".distanceDisplay");
+const distanceSlider = document.querySelector(".distanceSlider");
+const  heightDisplay = document.querySelector(".heightDisplay");
+
+distanceSlider.oninput = function () {
+    distanceDisplay.textContent = `Distance: ${this.value} meters`;
+}
+// Executed after page is loaded
 const main = () => {
     window.addEventListener("orientationchange", onAngleChange);
+    getVideo();
 }
 
-
+// Called when phone's accelerometer detects movement
 const onAngleChange = (event) => {
     let angle = event.beta - 90;
     if (angle < 0) {
         angle = 0;
     }
+
+    let height = Math.tan(angle*Math.PI/180)*distanceDisplay.textContent;
+    heightDisplay.textContent = height;
+
 }
-
+// Asks the user for permission to use camera
 const getVideo = () => {
-    let videoPromise = navigator.mediaDevices.getUserMedia({video: {facingMode: {exact: "environment"}}, audio: false});
-
+    let videoPromise = navigator.mediaDevices.getUserMedia({video: true, audio: false});
     videoPromise.then(function (signal) {
-        let videoElement = document.createElement("video");
+        let videoElement = document.querySelector(".videoPlayer");
         videoElement.srcObject = signal;
         videoElement.play();
     })
-
 }
+
+

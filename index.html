@@ -8,8 +8,13 @@
 </head>
 <body onload="main()">
 <div class="topContainer">
-    <input class="distanceSlider" type="range">
-    <div class="distanceDisplay">Distance to object:</div>
+    <input class="distanceSlider" type="range" min="1" max="20" value="8">
+    <div class="distanceDisplay">Distance: 8 meters</div>
+</div>
+
+<div class="middleContainer">
+    <h2 class="heightDisplay">Height of the object: </h2>
+    <div class="heightLine"></div>
 </div>
 
 <video class="videoPlayer"></video>
