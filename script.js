@@ -8,9 +8,7 @@ distanceSlider.oninput = function () {
 // Executed after page is loaded
 const main = () => {
     console.log("nonii");
-    screen.orientation.addEventListener("change", function (event) {
-        onAngleChange(event);
-    })
+    window.addEventListener("deviceorientation", onAngleChange);
     getVideo();
 }
 
@@ -20,20 +18,24 @@ const onAngleChange = (event) => {
     if (angle < 0) {
         angle = 0;
     }
+    console.log(angle);
 
-    let height = Math.tan(angle*Math.PI/180)*distanceDisplay.textContent;
-    heightDisplay.textContent = height;
-    console.log("Toimii");
+    let height = Math.tan(angle*Math.PI/180)*distanceSlider.value;
+
+    heightDisplay.textContent = Math.floor(height * 100) / 100;
+
 
 }
 // Asks the user for permission to use camera
 const getVideo = () => {
-    let videoPromise = navigator.mediaDevices.getUserMedia({video: true, audio: false});
+    let videoPromise = navigator.mediaDevices.getUserMedia({video: {facingMode: { exact: "environment" }}, audio: false});
     videoPromise.then(function (signal) {
         let videoElement = document.querySelector(".videoPlayer");
         videoElement.srcObject = signal;
         videoElement.play();
     })
 }
+
+main();
 
 
