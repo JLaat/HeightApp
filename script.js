@@ -18,14 +18,17 @@ const main = () => {
 // Called when phone's accelerometer detects movement
 const onAngleChange = (event) => {
     let angle = event.beta - 90;
-    if (angle < 0) {
+    if (angle > 0) {
+        let height = Math.tan(angle * Math.PI / 180) * distanceSlider.value;
+
+        heightDisplay.textContent = `${(Math.floor(height * 100) / 100 + 1.5).toFixed(1)} m (${angle.toFixed(1)}°)`;
+    } else {
         angle = 0;
+        heightDisplay.textContent = `<1.5 m (0°)`;
     }
-    console.log(angle);
 
-    let height = Math.tan(angle * Math.PI / 180) * distanceSlider.value;
 
-    heightDisplay.textContent = `${(Math.floor(height * 100) / 100 + 1.5).toFixed(1)} m (${angle.toFixed(1)}°)`;
+
 
 
 }
