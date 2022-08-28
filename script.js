@@ -7,11 +7,18 @@ distanceSlider.oninput = function () {
 }
 // Executed after page is loaded
 const main = () => {
-    console.log("nonii");
-    window.addEventListener("deviceorientation", onAngleChange);
+    DeviceOrientationEvent.requestPermission()
+        .then(response => {
+            if (response == "granted") {
+                window.addEventListener("deviceorientation", onAngleChange);
+            }
+        }).catch(err => {
+            console.log("Error: " + err);
+    })
+
     getVideo();
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
-        alert("Hello, it's me your camera")
+        console.log("Hello its your camera");
     }
 }
 
@@ -25,7 +32,7 @@ const onAngleChange = (event) => {
 
     let height = Math.tan(angle * Math.PI / 180) * distanceSlider.value;
 
-    heightDisplay.textContent = Math.floor(height * 100) / 100;
+    heightDisplay.textContent = `Height of the object: ${Math.floor(height * 100) / 100+150}`;
 
 
 }
