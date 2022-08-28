@@ -3,26 +3,31 @@ html, body {
     width: 100%;
     overflow: hidden;
     margin: 0;
-
 }
+
 /* Top section, contains slider and display for sliders value */
 .topContainer {
     width: 100vw;
     position: absolute;
-    top: 10%;
+    top: 0%;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1;
+    background-color: rgba(66, 133, 244, .5);
 }
+
 .distanceDisplay, .heightDisplay {
     color: white;
     font-size: 3em;
-}
-.distanceSlider {
+    font-family: system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 
+}
+
+.distanceSlider {
     min-width: 50vw;
 }
+
 /* Middle section, contains straight line and displays objects height */
 .middleContainer {
     position: absolute;
@@ -30,28 +35,33 @@ html, body {
     display: flex;
     flex-direction: column;
 }
+
 .heightLine {
     height: .3em;
     border-bottom: dashed #4285F4 .3em;
     width: 100vw;
 }
+
 .heightDisplay {
-align-self: center;
+    align-self: center;
 }
 
 /* Phones camera that is displayed in whole page */
 .videoPlayer {
-   height: 100vh;
+    height: 100vh;
 }
+
 input[type=range] {
     width: 100%;
     margin: 10.45px 0;
     background-color: transparent;
     -webkit-appearance: none;
 }
+
 input[type=range]:focus {
     outline: none;
 }
+
 input[type=range]::-webkit-slider-runnable-track {
     background: #4285f4;
     border-radius: 5px;
@@ -59,6 +69,7 @@ input[type=range]::-webkit-slider-runnable-track {
     height: 15px;
     cursor: pointer;
 }
+
 input[type=range]::-webkit-slider-thumb {
     margin-top: -10.55px;
     width: 34px;
@@ -69,9 +80,11 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
     -webkit-appearance: none;
 }
+
 input[type=range]:focus::-webkit-slider-runnable-track {
     background: #5a95f5;
 }
+
 input[type=range]::-moz-range-track {
     background: #4285f4;
     border: 0.1px solid #010101;
@@ -80,6 +93,7 @@ input[type=range]::-moz-range-track {
     height: 15.1px;
     cursor: pointer;
 }
+
 input[type=range]::-moz-range-thumb {
     width: 34px;
     height: 36px;
@@ -88,6 +102,7 @@ input[type=range]::-moz-range-thumb {
     border-radius: 31px;
     cursor: pointer;
 }
+
 input[type=range]::-ms-track {
     background: transparent;
     border-color: transparent;
@@ -97,16 +112,19 @@ input[type=range]::-ms-track {
     height: 15.1px;
     cursor: pointer;
 }
+
 input[type=range]::-ms-fill-lower {
     background: #2a75f3;
     border: 0.1px solid #010101;
     border-radius: 10px;
 }
+
 input[type=range]::-ms-fill-upper {
     background: #4285f4;
     border: 0.1px solid #010101;
     border-radius: 10px;
 }
+
 input[type=range]::-ms-thumb {
     width: 34px;
     height: 36px;
@@ -117,12 +135,15 @@ input[type=range]::-ms-thumb {
     margin-top: 0px;
     /*Needed to keep the Edge thumb centred*/
 }
+
 input[type=range]:focus::-ms-fill-lower {
     background: #4285f4;
 }
+
 input[type=range]:focus::-ms-fill-upper {
     background: #5a95f5;
 }
+
 /*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
 how to remove the virtical space around the range input in IE*/
 @supports (-ms-ime-align:auto) {
@@ -133,17 +154,51 @@ how to remove the virtical space around the range input in IE*/
     }
 }
 
-.btnPermission {
-    position: absolute;
-    left: 40%;
-    border-radius: 1em;
-    padding: .5em;
-    font-weight: bold;
-    font-size: 1em;
-    color: white;
-    z-index: 1;
 
-    background-color: rgb(90,149,245);
+button {
+    margin: .5em;
+    align-items: center;
+    background-color: #0A66C2;
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+}
+
+/* CSS */
+button:hover, button:focus {
+    background-color: #16437E;
+    color: #ffffff;
 }
 
 
+button:active {
+    background: #09223b;
+    color: rgb(255, 255, 255, .7);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+}

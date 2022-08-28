@@ -42,6 +42,7 @@ const getVideo = () => {
     })
 }
 
+// Mainly for iPhone users, to get accelerometer data
 const getPermission = () => {
     console.log("joo");
     DeviceOrientationEvent.requestPermission().then(response => {
