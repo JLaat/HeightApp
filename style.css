@@ -133,4 +133,17 @@ how to remove the virtical space around the range input in IE*/
     }
 }
 
+.btnPermission {
+    position: absolute;
+    left: 40%;
+    border-radius: 1em;
+    padding: .5em;
+    font-weight: bold;
+    font-size: 1em;
+    color: white;
+    z-index: 1;
+
+    background-color: rgb(90,149,245);
+}
+
 

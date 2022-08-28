@@ -42,5 +42,14 @@ const getVideo = () => {
     })
 }
 
+const getPermission = () => {
+    console.log("joo");
+    DeviceOrientationEvent.requestPermission().then(response => {
+        if (response == "granted") {
+            window.addEventListener("deviceorientation", onAngleChange);
+        }
+    })
+}
+
 main();
 
