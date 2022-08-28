@@ -1,6 +1,6 @@
 const distanceDisplay = document.querySelector(".distanceDisplay");
 const distanceSlider = document.querySelector(".distanceSlider");
-const  heightDisplay = document.querySelector(".heightDisplay");
+const heightDisplay = document.querySelector(".heightDisplay");
 
 distanceSlider.oninput = function () {
     distanceDisplay.textContent = `Distance: ${this.value} meters`;
@@ -20,7 +20,7 @@ const onAngleChange = (event) => {
     }
     console.log(angle);
 
-    let height = Math.tan(angle*Math.PI/180)*distanceSlider.value;
+    let height = Math.tan(angle * Math.PI / 180) * distanceSlider.value;
 
     heightDisplay.textContent = Math.floor(height * 100) / 100;
 
@@ -28,9 +28,10 @@ const onAngleChange = (event) => {
 }
 // Asks the user for permission to use camera
 const getVideo = () => {
-    let videoPromise = navigator.mediaDevices.getUserMedia({video: {facingMode: { exact: "environment" }}, audio: false});
+    let videoPromise = navigator.mediaDevices.getUserMedia({video: {facingMode: {exact: "environment"}}, audio: false});
     videoPromise.then(function (signal) {
         let videoElement = document.querySelector(".videoPlayer");
+        videoElement.setAttribute("playsinline", true);
         videoElement.srcObject = signal;
         videoElement.play();
     })
