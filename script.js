@@ -10,6 +10,9 @@ const main = () => {
     console.log("nonii");
     window.addEventListener("deviceorientation", onAngleChange);
     getVideo();
+    if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+        alert("Hello, it's me your camera")
+    }
 }
 
 // Called when phone's accelerometer detects movement
