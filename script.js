@@ -31,12 +31,14 @@ const onAngleChange = (event) => {
 }
 // Asks the user for permission to use camera
 const getVideo = () => {
-    let videoPromise = navigator.mediaDevices.getUserMedia({video: {facingMode: {exact: "environment"}}, audio: false});
+    let videoPromise = navigator.mediaDevices.getUserMedia({video: {facingMode: "environment"}, audio: false});
     videoPromise.then(function (signal) {
         let videoElement = document.querySelector(".videoPlayer");
         videoElement.setAttribute("playsinline", true);
         videoElement.srcObject = signal;
         videoElement.play();
+    }).catch((err)  => {
+        alert(err);
     })
 }
 
