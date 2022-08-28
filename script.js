@@ -25,7 +25,7 @@ const onAngleChange = (event) => {
 
     let height = Math.tan(angle * Math.PI / 180) * distanceSlider.value;
 
-    heightDisplay.textContent = `Height of the object: ${Math.floor(height * 100) / 100 + 1.5}`;
+    heightDisplay.textContent = `${(Math.floor(height * 100) / 100 + 1.5).toFixed(1)} m (${angle.toFixed(1)}°)`;
 
 
 }
