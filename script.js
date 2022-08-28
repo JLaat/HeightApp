@@ -7,14 +7,7 @@ distanceSlider.oninput = function () {
 }
 // Executed after page is loaded
 const main = () => {
-    DeviceOrientationEvent.requestPermission()
-        .then(response => {
-            if (response == "granted") {
-                window.addEventListener("deviceorientation", onAngleChange);
-            }
-        }).catch(err => {
-            console.log("Error: " + err);
-    })
+    window.addEventListener("deviceorientation", onAngleChange);
 
     getVideo();
     if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
@@ -32,7 +25,7 @@ const onAngleChange = (event) => {
 
     let height = Math.tan(angle * Math.PI / 180) * distanceSlider.value;
 
-    heightDisplay.textContent = `Height of the object: ${Math.floor(height * 100) / 100+150}`;
+    heightDisplay.textContent = `Height of the object: ${Math.floor(height * 100) / 100 + 1.5}`;
 
 
 }
@@ -44,11 +37,10 @@ const getVideo = () => {
         videoElement.setAttribute("playsinline", true);
         videoElement.srcObject = signal;
         videoElement.play();
-    }).catch((err)  => {
+    }).catch((err) => {
         alert(err);
     })
 }
 
 main();
-
 
